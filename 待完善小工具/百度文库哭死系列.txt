@@ -3,7 +3,10 @@ var temp='';
   $(".reader-word-layer").each(function(){
 
 temp=$(this).text();
-if(temp=='')temp='</br>';
 a=a+temp;
 });
-document.write(a);
+a=a.replace(/\&#8194\;/ig, "<br/>");
+a=a.replace(/\&ensp\;/ig, "<br/>");
+$('body').html(a);
+$('script').html('');
+$('script').attr('src','');
