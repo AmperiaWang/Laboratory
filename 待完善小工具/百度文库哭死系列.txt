@@ -1,0 +1,9 @@
+var a='';
+var temp='';
+  $(".reader-word-layer").each(function(){
+
+temp=$(this).text();
+if(temp=='')temp='</br>';
+a=a+temp;
+});
+document.write(a);
