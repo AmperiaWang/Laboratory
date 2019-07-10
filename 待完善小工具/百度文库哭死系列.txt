@@ -1,5 +1,4 @@
-﻿var a='<pre>';
+﻿var a='';
 $(".reader-word-layer").each(function(){a=a+$(this).text();});
-a=a.replace(/ /g, "</pre><br><pre>");
-a=a+'</pre>';
+a=a.replace(/ /g, "<br>");
 $('body').html(a);
