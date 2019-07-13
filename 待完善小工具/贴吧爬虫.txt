@@ -1,0 +1,30 @@
+﻿var a='<nav><div style="padding:0 20px;width:100%;height:64px;border-bottom:2px solid #6699cc;background-color:#ffffff;">以下是帖子内容：</div></nav><div style="margin: 0 auto;max-width: 1280px;width: 90%;">';
+var nTopic=1;
+$(".l_post").each(function(){
+if($(this).find(".louzhubiaoshi").length>0){
+a=a+'<p class="headers">'+nTopic+'</p><div style="word-break:break-all;word-wrap:break-word;">';
+a=a+$(this).find(".d_post_content").html();
+a=a+'</div><div style="height:1px;background-color: #cccccc;width:100%;"></div>';
+nTopic++;
+}
+});
+var buttonStyle='style="display: inline-block;font-size: 20px;line-height: 40px;background: rgba(255, 255, 255, 0.75);border: 1px solid #6699cc;border-radius: 5px;padding: 0 10px;color: #6699cc;margin:0 25px;"';
+a=a+'<div style="text-align: center;margin:10px 0;">'
+$('.l_pager.pager_theme_5 a').each(function(){
+if($(this).text()=='上一页'){
+a=a+'<a '+buttonStyle+' href="'+$(this).attr('href')+'">上一页</a>';
+}else if($(this).text()=='下一页'){
+a=a+'<a '+buttonStyle+' href="'+$(this).attr('href')+'">下一页</a>';
+}
+});
+a=a+'</div></div><footer><div style="padding:0 20px;width:100%;height:64px;border-top:1px solid #cccccc;background-color:#ffffff;">页面上的内容已经格式化过，若想复制到文档中ctrl+c，ctrl+v即可&nbsp;&nbsp;&nbsp;&nbsp;by.安培利亚</div></footer>';
+a=a.replace(/<img/g, "<br><img");
+$('body').html(a);
+$('img').attr('class','');
+$('p,a').css('font-family','微软雅黑');
+$('p,a,div').css('font-size','18px');
+$('p.headers').css('font-size','22px');
+$('nav div').css('font-size','24px');
+$('p,div,a').css('line-height','4ex');
+$('nav div,footer div').css('line-height','64px');
+$('img').attr('style','width:60%;height:auto;');
